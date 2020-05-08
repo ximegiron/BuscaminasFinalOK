@@ -67,11 +67,57 @@ namespace Buscaminas
                 Console.Clear();
                 game.ShowGrid();
                 Console.WriteLine("RENGLÓN: ");
+                int renglon = int.Parse(Console.ReadLine());
                 Console.ReadLine();
                 Console.WriteLine("COLUMNA: ");
+                int columna = int.Parse(Console.ReadLine());
                 Console.ReadLine();
                 Console.ReadKey();
+
+
+
+
+                Console.Write("Fila:");
+                int posI = int.Parse(Console.ReadLine());
+                Console.Write("Columna:");
+                int posJ = int.Parse(Console.ReadLine());
+
+                ConsoleGame<Celda> lista = new ConsoleGame<Celda>();
+                int ini_reng = posI - 1;
+                if (ini_reng < 0)
+                    ini_reng = 0;
+                int posI_final = posI + 1;
+                if (posI_final >= mat.GetLength(0))
+                    posI_final = posI;
+
+                int ini_col = posJ - 1;
+                if (ini_col < 0)
+                    ini_col = 0;
+                int fin_col = pos_col + 1;
+                if (fin_col >= mat.GetLength(1))
+                    fin_col = pos_col;
+
+
+
+
+                for (int i = ini_reng; i <= posI_final; i++)
+                {
+                    for (int j = ini_col; j <= fin_col; j++)
+                    {
+                        if (i == pos_ren && j == pos_col) continue;
+                        lista.Add(mat[i, j]);
+                    }
+                }
+                foreach (Celda e in lista)
+                {
+                    Console.Write(e.valor + ",");
+                }
+
+                Console.ReadKey();
+
+
+            }
+            void Click();
             }
         }
     }
-}

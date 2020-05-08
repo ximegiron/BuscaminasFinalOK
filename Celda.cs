@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Buscaminas
 {
-    class Celda : ICell
+    public class Celda : ICell
     {
         public enum Status
         {

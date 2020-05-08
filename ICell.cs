@@ -1,7 +1,7 @@
 ﻿//ximena
 namespace Buscaminas //Cambiar el nombre del namespace
 {
-    interface ICell 
+    public interface ICell 
     {
         int GetValue();
         bool IsHidden();

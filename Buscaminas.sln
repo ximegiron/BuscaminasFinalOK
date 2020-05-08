@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buscaminas", "Buscaminas.csproj", "{B830F036-D671-4AA3-8676-E71285E197D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuscaminasGráfico", "..\BuscaminasGráfico\BuscaminasGráfico.csproj", "{AD13F0C7-144E-40D8-9516-9AA1D0F9EE13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuscaminasGráfico", "BuscaminasGráfico\BuscaminasGráfico.csproj", "{AD13F0C7-144E-40D8-9516-9AA1D0F9EE13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

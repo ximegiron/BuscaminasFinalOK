@@ -1,4 +1,5 @@
 ﻿//ximena
+using Buscaminas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +8,112 @@ using System.Threading.Tasks;
 
 namespace Buscaminas
 {
-    class Game <T> where T : ICell, new()
+    public class Game<T> where T : ICell, new()
     {
         protected int tiempo;
         protected int numMines;
 
-        protected int width;
-        protected int height;
+        public int width;
+        public int height;
 
         protected int minesLeft;
-        public int flagsCount; 
+        public int flagsCount;
+
+        private bool gameOver;
+        private int cellsLeft;
+        private bool isPlaying;
+
+        public static Game<Celda> currentGame;
+
+        private void GetNeighbors();
+        protected void ChangeMineNeighbors();
+        public void GenerateRandomMines(int initPosX, int initPosy);
 
         protected CellNode[,] celdas;
 
-        public Game(int w, int h, int minas)  
+        public int FlagsCount
+        {
+            get
+            {
+                return this.FlagsCount;
+            }
+        }
+        public void AddFlag()
+        {
+            this.flagsCount--;
+        }
+
+        public void RemoveFlag()
+        {
+            this.flagsCount++;
+        }
+
+        public void AddMineCount()
+        {
+            if (--this.mines == 0)
+            {
+                this.isPlaying = false;
+            }
+        }
+
+        public int CellsLeft;
+        public bool GameOver;
+        private int mines;
+        public int Tiempo
+        {
+            get
+            {
+                return this.tiempo;
+            }
+
+            set 
+            {
+                this.tiempo++;
+            }
+        }
+
+        private void FormatTime()
+        {
+            if (this.tiempo == 60)
+            {
+                this.tiempo = 0;
+                this.minutos++;
+            }
+            return this.minutos.ToString("00") + ":" + this.tiempo.ToString("00")
+        }
+
+        public bool GameOver
+        {
+            get { return this.GameOver; }
+            set
+            {
+                this.GameOver = true;
+                this.isPlaying = false;
+            }
+        }
+
+        public bool IsPlaying
+        {
+            get => this.isPlaying;
+        }
+        
+        public int HeightGetter
+        {
+            get
+            {
+                return this.height;
+            }
+        }
+
+        public int WidthGetter
+        {
+            get
+            {
+                return this.width;
+            }
+        }
+
+        public Game(int w, int h, int minas)
         {
             this.width = w;
             this.height = h;
@@ -64,5 +157,9 @@ namespace Buscaminas
                 list.RemoveAt(pos);
             }
         }
+        public void GetStats()
+        {
+        }
+
     }
 }
